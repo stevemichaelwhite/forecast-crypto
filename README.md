@@ -1,9 +1,17 @@
-# StatsNZ ARIMA Training 2021
+# StatsNZ ARIMA Training 2021 - Lecture 1
 
----
-**Note**
+[Lecture 1 Video](https://statsnewzealand-my.sharepoint.com/:v:/r/personal/steve_white_stats_govt_nz/Documents/Recordings/ARIMA%20Modelling%20-%20Lesson%201-20210923_094007-Meeting%20Recording.mp4?csf=1&web=1&e=dTMYc8)
+
+
+
 
 ## Exercises I  
+
+***
+
+**Note:** This exercise might be a good litmus test to see if you have the time to dedicate to the course as this will be the least demanding exercise.  
+
+***  
 
 • Find a monthly series time series which is at least 15 years in length. It
 can be anything you find interesting, so does not have to be a StatsNZ
