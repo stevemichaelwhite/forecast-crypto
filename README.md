@@ -16,7 +16,7 @@
 can be anything you find interesting, so does not have to be a StatsNZ
 series. You might want to consult others to see if someone else is interested
 in it too. While it is much better if you do your own analysis on a time
-series it is helpful if, after you have done your work, you can compare
+series, it is helpful if, after you have done your work, you can compare
 your results with someone independently working on the same time series.   
 * If your are struggling to think of anything here are some suggestions   
     * Monthly visitor arrivals   
@@ -24,7 +24,7 @@ your results with someone independently working on the same time series.
     * Monthly residential building consents   
 * Get your series into an R time series object.   
 * Plot the series. You have succeeded in previous step if the x-axis has date labels.   
-* Put a line at any time point. In other words, if you talk about a series at March 2004, for example, can you put a line at that point?
+* Put a vertical line at any time point. In other words, if you talk about a series at March 2004, for example, can you put a vertical line at that time point?
 * Produce the ACF for your time series.   
 
 ## Other notes
