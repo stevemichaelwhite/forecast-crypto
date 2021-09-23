@@ -22,7 +22,8 @@ your results with someone independently working on the same time series.
 * If your are struggling to think of anything here are some suggestions
     * Monthly visitor arrivals
     * Monthly merchandise exports
-    * Monthly residential building consents
+    * Monthly residential building consents  
+    
 * Get your series into an R time series object.
 * Plot the series. You have succeeded in previous step if the x-axis has date labels.
 * Put a line at any time point. In other words, if you talk about a series at
