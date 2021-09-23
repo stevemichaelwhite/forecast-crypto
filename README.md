@@ -27,15 +27,6 @@ your results with someone independently working on the same time series.
 * Put a line at any time point. In other words, if you talk about a series at March 2004, for example, can you put a line at that point?
 * Produce the ACF for your time series.   
 
-## Submitting work
-
-I would suggest creating a branch with your name or username.  For example, I will create a branch called `swhite`.  The graphical way to do that is to just use the website:
-
-![new-branch](./data/new-branch.png "New Branch")
-
-Feel free to create a study-group branch too! The current idea is that I will pencil in a 1-hour review session at some point before the next lecture to share and discuss work.  Maybe a week prior.  
-
 ## Other notes
 
-I realise everyone may not be up-to-speed on using GitLab.  I will collect feedback prabably with a Google forms to gauge what what we might want to do to get up to speed with certain things
-
+Refer to [Resources](https://gitlabstats-prd/StatsMethods/time-series-network/learning/arima-modelling/resources) to learn how to submit work.
