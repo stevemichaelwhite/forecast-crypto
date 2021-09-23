@@ -5,15 +5,14 @@
 
 
 
-## Exercises I  
+## Exercise I  
 
-***
+**Note:** *This exercise might be a good litmus test to see if you have the time to dedicate to the course as this will be the least demanding exercise.*
 
-**Note:** This exercise might be a good litmus test to see if you have the time to dedicate to the course as this will be the least demanding exercise.  
 
 ***  
 
-• Find a monthly series time series which is at least 15 years in length. It
+* Find a monthly series time series which is at least 15 years in length. It
 can be anything you find interesting, so does not have to be a StatsNZ
 series. You might want to consult others to see if someone else is interested
 in it too. While it is much better if you do your own analysis on a time
@@ -23,11 +22,20 @@ your results with someone independently working on the same time series.
 * If your are struggling to think of anything here are some suggestions
     - Monthly visitor arrivals
     - Monthly merchandise exports
-    - Monthly residential building consents
-• Get your series into an R time series object.
-• Plot the series. You have succeeded in previous step if the x-axis has date
-labels
-• Put a line at any time point. In other words, if you talk about a series at
+    - Monthly residential building consents  
+    
+* Get your series into an R time series object.
+* Plot the series. You have succeeded in previous step if the x-axis has date
+labels.
+* Put a line at any time point. In other words, if you talk about a series at
 March 2004, for example, can you put a line at that point?
-• Produce the ACF for your time series.
+* Produce the ACF for your time series.
+
+## Submitting work
+
+I would suggest creating a branch with your name or user name.  For example, I will create a branch called `swhite`.  Feel free to create a study-group branch too! The current idea, is that I will pencil in a review session at some point before the next lecture to share and discuss work.  
+
+## Other notes
+
+I realise everyone may not be up-to-speed on using GitLab.  I will collect feedback prabably with a google forms to gauge what what we might want to do to get up to speed with certain things
 
