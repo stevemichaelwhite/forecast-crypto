@@ -20,9 +20,9 @@ series it is helpful if, after you have done your work, you can compare
 your results with someone independently working on the same time series.
 
 * If your are struggling to think of anything here are some suggestions
-    - Monthly visitor arrivals
-    - Monthly merchandise exports
-    - Monthly residential building consents
+    * Monthly visitor arrivals
+    * Monthly merchandise exports
+    * Monthly residential building consents
 * Get your series into an R time series object.
 * Plot the series. You have succeeded in previous step if the x-axis has date labels.
 * Put a line at any time point. In other words, if you talk about a series at
@@ -35,7 +35,7 @@ I would suggest creating a branch with your name or username.  For example, I wi
 
 ![new-branch](./data/new-branch.png "New Branch")
 
-Feel free to create a study-group branch too! The current idea, is that I will pencil in a review session at some point before the next lecture to share and discuss work.  
+Feel free to create a study-group branch too! The current idea is that I will pencil in a 1-hour review session at some point before the next lecture to share and discuss work.  Maybe a week prior.  
 
 ## Other notes
 
