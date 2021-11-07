@@ -1,0 +1,163 @@
+---
+title: "Exploratory Analysis - Bitcoin price"
+author: "Steve White"
+date: "10/7/2021"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+---
+
+<style type="text/css">
+  p,ul,li{
+  font-size: 12pt;
+}
+</style>
+
+```{r setup, include=FALSE}
+library(htmltools)
+library(tidyverse)
+library(magrittr)
+library(plotly)
+library(tsibble)
+library(feasts)
+library(fable)
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, results = "asis")
+plot_res <- readRDS("../data/plot_res.rds")
+btc_daily_ts_train <- readRDS("../data/btc_daily_ts_train.rds")
+
+```
+
+## Overview  
+
+This document answers exercise 1 as well as explores the TS analysis framework provided by:
+[https://otexts.com/fpp3/arima-r.html](https://otexts.com/fpp3/arima-r.html)
+
+The data analysed is the daily close price of Bitcoin.  On 11, Nov 2021, the first 90% of the periods were taken as a training set.
+
+[Code Available on GitLab](https://gitlabstats-prd/StatsMethods/time-series-network/learning/arima-modelling/lecture-1/-/tree/swhite)  
+
+## Analyse Raw Data {.tabset .tabset-pills}
+
+Are there any unusual observations?  
+Years with explosive growth: 2010, 2013, 2017  
+
+```{r}
+
+cat('\n') 
+cat("### Observed data  \n")
+htmltools::tagList(plot_res$btc_raw)
+cat('\n') 
+cat("### By year  \n")
+htmltools::tagList(plot_res$btc_raw_byyear)
+cat('\n') 
+# cat("### ACF  \n")
+# btc_daily %>% ACF(close) %>% autoplot()
+# cat('\n\n') 
+# cat("### First Difference  \n")
+# p <- btc_daily %>% autoplot(difference(close)) +
+#   labs(title="Daily Close Price - 1st Diff",
+#        y="USD") 
+# htmltools::tagList(ggplotly(p))
+# cat('\n\n') 
+# cat("### ACF - First Diff  \n")
+# btc_daily %>% ACF(difference(close)) %>% autoplot()
+# 
+# cat('\n\n')
+
+  
+```
+
+## {-}
+
+## Box-Cox Transformation {.tabset .tabset-pills}
+
+Should we consider a Box-Cox transformation?
+I chose a lambda using Guerro method.
+
+Guerrero, V. M. (1993). Time-series analysis supported by power transformations. Journal of Forecasting, 12(1), 37–48. [DOI]
+
+```{r}
+
+cat('\n') 
+cat("### Guerro  \n")
+htmltools::tagList(plot_res$btc_guerrero)
+cat('\n') 
+cat("### Log  \n")
+htmltools::tagList(plot_res$btc_log)
+cat('\n')
+
+
+  
+```
+
+## {-}
+
+## Differencing {.tabset .tabset-pills}
+
+First difference applied to make stationary.  
+
+```{r, echo=TRUE, results='markup'}
+
+
+btc_daily_ts_train %>% features(close_guerro, unitroot_ndiffs)
+btc_daily_ts_train %>% features(close_guerro, unitroot_kpss)
+btc_daily_ts_train %>% features(close_guer_diff, unitroot_kpss)
+btc_daily_ts_train %>% features(close_guerro, unitroot_nsdiffs)
+
+
+```
+
+## {-}
+
+## Plots {.tabset .tabset-pills}
+
+
+```{r}
+
+cat('\n')
+cat("### Guerro Diff  \n")
+btc_daily_ts_train %>% autoplot(close_guer_diff)
+cat('\n\n')
+cat("### ACF PACF  \n")
+btc_daily_ts_train %>% ACF(close_guer_diff) %>% autoplot()
+btc_daily_ts_train %>% PACF(close_guer_diff) %>% autoplot()
+cat('\n\n')
+cat("### Lag Plots  \n")
+btc_daily_ts_train  %>% gg_lag(close_guer_diff, geom="point")
+cat('\n\n')
+
+
+
+  
+```
+
+## {-}
+
+```{r}
+# for(i in snames) {
+#   cat(sprintf("## %s  {.tabset .tabset-pills}   \n", i))
+# 
+#   cat('\n')
+#   cat("### Actual-D11-D12  \n")
+#   print(htmltools::tagList(hlfs_plots_def$prd[[i]]))
+#   cat("\n")
+#   cat("### Compare D11  \n")
+#   print(htmltools::tagList(d11_combined_plots[[i]]))
+#   cat("\n")
+#   cat("### Revision Plots  \n")
+#   print(htmltools::tagList(revision_plots[[i]]))
+#   cat("\n")
+#   cat("### Compare D11 Movement  \n")
+#   print(htmltools::tagList(d11_combined_plots_mvmt[[i]]))
+#   cat("\n")
+# 
+# 
+#   cat("## {-}  \n")
+#   
+# }
+
+  
+```
